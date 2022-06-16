@@ -535,9 +535,9 @@ func main() {
 	print("Starting the Tapico Turborepo remote cache server")
 
 	// Start server
-	address := os.Getenv("LISTEN_ADDRESS")
+	address := os.Getenv("PORT")
 	if len(address) > 0 {
-		err := http.ListenAndServe(address, loggedRouter)
+		err := http.ListenAndServe(":"+address, loggedRouter)
 		if err != nil {
 			panic(err)
 		}
